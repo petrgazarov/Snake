@@ -7,13 +7,13 @@
     this.$el = $(selector);
     this.board = new SGame.Board();
 
-    this.$el.keydown(function(e) {
+    $('html').keydown(function(e) {
       this.handleKeyEvent(e);
     }.bind(this));
     window.setInterval(this.step.bind(this), 500);
   }
 
-  View.prototype.handleKeyEvent = function() {
+  View.prototype.handleKeyEvent = function(e) {
     switch(e.which) {
       case 37: this.board.turnSnake("W");
       break;
