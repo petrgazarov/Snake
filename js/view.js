@@ -15,16 +15,16 @@
 
   View.prototype.handleKeyEvent = function() {
     switch(e.which) {
-        case 37: this.snake.turn("W");
+        case 37: this.board.turnSnake("W");
         break;
 
-        case 38: this.snake.turn("N");
+        case 38: this.board.turnSnake("N");
         break;
 
-        case 39: this.snake.turn("E");
+        case 39: this.board.turnSnake("E");
         break;
 
-        case 40: this.snake.turn("S");
+        case 40: this.board.turnSnake("S");
         break;
 
         default: return;
@@ -33,7 +33,7 @@
   }
 
   View.prototype.step = function() {
-    this.snake.move();
+    this.board.moveSnake();
     this.board.render();
   }
-});
+})();

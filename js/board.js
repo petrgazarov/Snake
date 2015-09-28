@@ -24,4 +24,12 @@
       }
     }
   }
+
+  Board.prototype.turnSnake = function(dir) {
+    this.snake.turn(dir);
+  }
+
+  Board.prototype.moveSnake = function() {
+    this.snake.move();
+  }
 })();
