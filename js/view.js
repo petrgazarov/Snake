@@ -34,6 +34,7 @@
 
   View.prototype.step = function() {
     this.board.moveSnake();
+    var grid = this.board.render();
     this.$el.html(this.board.render());
   }
 })();

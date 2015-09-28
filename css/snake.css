@@ -1,6 +1,35 @@
+/*RESET*/
+html, body, figure, div {
+  border: 0;
+  padding: 0;
+  outline: 0;
+  margin: 0;
+
+  font: inherit;
+  background: transparent;
+  text-align: inherit;
+  text-decoration: inherit;
+}
+
 #main {
   display: block;
   width: 400px;
   height: 400px;
-  background: yellow;
+  border: 1px solid black;
+}
+
+.snake, .space {
+  display: block;
+  width: 18px;
+  height: 18px;
+  float: left;
+  border: 1px solid red;
+}
+
+.snake {
+  background: black;
+}
+
+.space {
+  background: pink;
 }

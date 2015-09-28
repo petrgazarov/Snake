@@ -11,16 +11,18 @@
 
   Board.prototype.render = function() {
     var grid = [];
-    for (var i = 0; i < this.dimensions[0]; i++) {
-      grid.push([]);
-    }
+    
     for (var i = 0; i < this.dimensions[0]; i++) {
       for (var j = 0; j < this.dimensions[1]; j++) {
         if (this.snake.isSnake([i, j])) {
-          grid[i].push("S");
+          var cell = $("<div>");
+          cell.addClass('snake');
+          grid.push(cell);
         }
         else {
-          grid[i].push('.');
+          var cell = $("<div>");
+          cell.addClass('space');
+          grid.push(cell);
         }
       }
     }
