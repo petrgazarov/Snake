@@ -10,6 +10,7 @@
     this.$el.keydown(function(e) {
       this.handleKeyEvent(e);
     }
+    window.setInterval(this.step, 500);
   }
 
   View.prototype.handleKeyEvent = function() {
@@ -29,5 +30,10 @@
         default: return;
     }
     e.preventDefault();
+  }
+
+  View.prototype.step = function() {
+    this.snake.move();
+    this.board.render();
   }
 });
