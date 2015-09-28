@@ -1,33 +1,39 @@
-SGame.Snake = function() {
-  dir: "N",
-  segments: [[4, 4]]
-}
-
-SGame.Snake.prototype.move = function() {
-  var that = this;
-
-  if (this.dir === "N") {
-    var newCoord = [- 1, 0)
-  }
-  else if (this.dir === "E") {
-    var newCoord = [0, - 1];
-  }
-  else if (this.dir === "S") {
-    var newCoord = [1, 0];
-  }
-  else if (this.dir === "W") {
-    var newCoord = [0, 1];
+(function () {
+  if (typeof SGame === "undefined") {
+    window.SGame = {};
   }
 
-  this.changeSegments(newCoord);
-}
+  var Snake = SGame.Snake = function() {
+    dir: "N",
+    segments: [[4, 4]]
+  }
 
-SGame.Snake.prototype.changeSegments = function(newCoord) {
-  this.segments.forEach(function(segment) {
-    segment = [segment[0] + newCoord[0], segment[1] + newCoord[1]];
-  });
-}
+  Snake.prototype.move = function() {
+    var that = this;
 
-SGame.Snake.prototype.turn = function(newDir) {
-  this.dir = newDir;
-}
+    if (this.dir === "N") {
+      var newCoord = [- 1, 0)
+    }
+    else if (this.dir === "E") {
+      var newCoord = [0, - 1];
+    }
+    else if (this.dir === "S") {
+      var newCoord = [1, 0];
+    }
+    else if (this.dir === "W") {
+      var newCoord = [0, 1];
+    }
+
+    this.changeSegments(newCoord);
+  }
+
+  Snake.prototype.changeSegments = function(newCoord) {
+    this.segments.forEach(function(segment) {
+      segment = [segment[0] + newCoord[0], segment[1] + newCoord[1]];
+    });
+  }
+
+  Snake.prototype.turn = function(newDir) {
+    this.dir = newDir;
+  }
+})();
