@@ -1,0 +1,3 @@
+SGame.Board = function() {
+
+}
