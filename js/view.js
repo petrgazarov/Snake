@@ -34,6 +34,6 @@
 
   View.prototype.step = function() {
     this.board.moveSnake();
-  this.$el.html(this.board.render());
+    this.$el.html(this.board.render());
   }
 })();
