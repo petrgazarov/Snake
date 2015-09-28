@@ -33,6 +33,16 @@
     });
   }
 
+  Snake.prototype.isSnake = function(position) {
+    this.segments.forEach(function(segment) {
+      if (segment[0] === position[0] && segment[1] === position[1]) {
+        return true;
+      }
+    });
+
+    return false;
+  }
+
   Snake.prototype.turn = function(newDir) {
     this.dir = newDir;
   }
