@@ -4,15 +4,15 @@
   }
 
   var Snake = SGame.Snake = function() {
-    dir: "N",
-    segments: [[4, 4]]
+    this.dir = "N",
+    this.segments = [[4, 4]]
   }
 
   Snake.prototype.move = function() {
     var that = this;
 
     if (this.dir === "N") {
-      var newCoord = [- 1, 0)
+      var newCoord = [- 1, 0];
     }
     else if (this.dir === "E") {
       var newCoord = [0, - 1];

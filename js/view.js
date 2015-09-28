@@ -3,13 +3,13 @@
     window.SGame = {};
   }
 
-  var View = SGame.View = function(element) {
-    this.$el = element;
+  var View = SGame.View = function(selector) {
+    this.$el = $(selector);
     this.board = new SGame.Board();
 
     this.$el.keydown(function(e) {
       this.handleKeyEvent(e);
-    }
+    });
     window.setInterval(this.step, 500);
   }
 
