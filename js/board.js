@@ -10,6 +10,7 @@
     for (var i = 0; i < this.dimensions[0]; i++) {
       this.grid.push([]);
     }
+    this.render();
   }
 
   Board.prototype.render = function() {
@@ -23,6 +24,7 @@
         }
       }
     }
+    return this.grid;
   }
 
   Board.prototype.turnSnake = function(dir) {

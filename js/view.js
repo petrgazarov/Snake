@@ -9,31 +9,31 @@
 
     this.$el.keydown(function(e) {
       this.handleKeyEvent(e);
-    });
-    window.setInterval(this.step, 500);
+    }.bind(this));
+    window.setInterval(this.step.bind(this), 500);
   }
 
   View.prototype.handleKeyEvent = function() {
     switch(e.which) {
-        case 37: this.board.turnSnake("W");
-        break;
+      case 37: this.board.turnSnake("W");
+      break;
 
-        case 38: this.board.turnSnake("N");
-        break;
+      case 38: this.board.turnSnake("N");
+      break;
 
-        case 39: this.board.turnSnake("E");
-        break;
+      case 39: this.board.turnSnake("E");
+      break;
 
-        case 40: this.board.turnSnake("S");
-        break;
+      case 40: this.board.turnSnake("S");
+      break;
 
-        default: return;
+      default: return;
     }
     e.preventDefault();
   }
 
   View.prototype.step = function() {
     this.board.moveSnake();
-    this.board.render();
+  this.$el.html(this.board.render());
   }
 })();
