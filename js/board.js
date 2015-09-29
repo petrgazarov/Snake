@@ -41,14 +41,14 @@
     var dir = this.snake.dir,
         dim = this.dimensions,
         head = this.snake.head();
-        // debugger
     if (
       (head[0] === dim[0] - 1 && dir === "S") ||
       (head[0] === 0 && dir === "N") ||
       (head[1] === dim[1] - 1 && dir === "E") ||
       (head[1] === 0 && dir === "W")
     ) {
-      alert("you lost!")
+      alert("you lost!");
+      return true;
     }
   }
 })();
