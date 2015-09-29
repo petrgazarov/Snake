@@ -10,7 +10,6 @@
     $('html').keydown(function(e) {
       this.handleKeyEvent(e);
     }.bind(this));
-    this.intervalId = window.setInterval(this.step.bind(this), 130);
   }
 
   View.prototype.handleKeyEvent = function(e) {
@@ -32,9 +31,17 @@
     e.preventDefault();
   }
 
-  View.prototype.step = function() {
-    if (this.board.checkIfLost(function() { alert("you lost!") })) {
+  View.prototype.startGame = function() {
+    this.intervalId = window.setInterval(this.step.bind(this), 130);
+  }
+
+  View.prototype.gameOver = function() {
       window.clearInterval(this.intervalId);
+  }
+
+  View.prototype.step = function() {
+    if (this.board.checkIfLost()) {
+      this.gameOver();
       return;
     }
     this.board.moveSnake();
