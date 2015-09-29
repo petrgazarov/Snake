@@ -21,25 +21,21 @@
       case 37:
       case 65:
         this.passTurn("W");
-        // this.board.turnSnake("W");
       break;
 
       case 38:
       case 87:
         this.passTurn("N");
-        // this.board.turnSnake("N");
       break;
 
       case 39:
       case 68:
         this.passTurn("E");
-        // this.board.turnSnake("E");
       break;
 
       case 40:
       case 83:
         this.passTurn("S");
-        // this.board.turnSnake("S");
       break;
 
       case 32: this.startGame();;

@@ -48,7 +48,7 @@
   }
 
   Snake.prototype.turn = function(newDir) {
-    if (this.oppositeDirection(newDir)) {
+    if (this.isOpposite(newDir)) {
       return;
     } else {
       this.dir = newDir;
@@ -59,14 +59,7 @@
     this.addSegment = true;
   }
 
-  Snake.prototype.oppositeDirection = function(newDir) {
-    var dir = this.dir;
-
-    return (
-      (dir === "N" && newDir === "S") ||
-      (dir === "S" && newDir === "N") ||
-      (dir === "E" && newDir === "W") ||
-      (dir === "W" && newDir === "E")
-    )
+  Snake.prototype.isOpposite = function(newDir) {
+    return SGame.Coord.isOpposite(this.dir, newDir);
   }
 })();
