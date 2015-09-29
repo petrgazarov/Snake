@@ -28,9 +28,11 @@
   }
 
   Snake.prototype.changeSegments = function(newCoord) {
-    this.segments.forEach(function(segment) {
-      segment = [segment[0] + newCoord[0], segment[1] + newCoord[1]];
-    });
+    for (var i = 0; i < this.segments.length; i++) {
+      this.segments[i] = [
+          this.segments[i][0] + newCoord[0], this.segments[i][1] + newCoord[1]
+        ];
+    }
   }
 
   Snake.prototype.isSnake = function(position) {
