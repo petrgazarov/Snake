@@ -28,6 +28,8 @@
   }
 
   Snake.prototype.changeSegments = function(newCoord) {
+    this.addSegment && (this.addSegment = false);
+
     for (var i = this.segments.length - 1; i > 0; i--) {
       this.segments[i] = this.segments[i - 1];
     }
@@ -46,6 +48,6 @@
   }
 
   Snake.prototype.grow = function() {
-    
+    this.addSegment = true;
   }
 })();
