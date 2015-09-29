@@ -10,6 +10,8 @@
     $('html').keydown(function(e) {
       this.handleKeyEvent(e);
     }.bind(this));
+
+
   }
 
   View.prototype.handleKeyEvent = function(e) {
@@ -26,17 +28,23 @@
       case 40: this.board.turnSnake("S");
       break;
 
+      case 32: this.startGame();;
+      break;
+
       default: return;
     }
     e.preventDefault();
   }
 
   View.prototype.startGame = function() {
-    this.intervalId = window.setInterval(this.step.bind(this), 130);
+    if (!this.intervalId) {
+      this.intervalId = window.setInterval(this.step.bind(this), 130);
+    }
   }
 
   View.prototype.gameOver = function() {
       window.clearInterval(this.intervalId);
+      this.intervalId = null;
   }
 
   View.prototype.step = function() {
