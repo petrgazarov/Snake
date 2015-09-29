@@ -5,6 +5,7 @@
 
   var Board = SGame.Board = function() {
     this.snake = new SGame.Snake();
+    console.log("initial " + this.snake.segments);
     this.dimensions = [20, 20];
     this.generateApple();
     this.render();
@@ -49,8 +50,8 @@
 
   Board.prototype.snakeAteApple = function() {
     var apple = this.apple.position,
-        head = this.snake.head();
-    return (head[0] === apple[0] && head[1] === apple[1]);
+        secondSegm = this.snake.segments[1];
+    return (secondSegm[0] === apple[0] && secondSegm[1] === apple[1]);
   }
 
   Board.prototype.checkIfLost = function() {
@@ -73,12 +74,10 @@
     this.snake.segments.forEach(function(segment) {
       if (segment[0] === position[0] && segment[1] === position[1]) {
         result = true;
-      }
-      else {
-        result = false;
+        return;
       }
     });
-    return result;
+    return result || false;
   }
 
   Board.prototype.generateApple = function() {

@@ -5,14 +5,14 @@
 
   var Snake = SGame.Snake = function() {
     this.dir = "E",
-    this.segments = [[10, 10]]
+    this.segments = [[0, 2], [0, 1], [0, 0]]
   }
 
   Snake.prototype.move = function() {
     var that = this;
 
     if (this.dir === "N") {
-      var newCoord = [- 1, 0];
+      var newCoord = [-1, 0];
     }
     else if (this.dir === "E") {
       var newCoord = [0, 1];
@@ -21,7 +21,7 @@
       var newCoord = [1, 0];
     }
     else if (this.dir === "W") {
-      var newCoord = [0, - 1];
+      var newCoord = [0, -1];
     }
 
     this.changeSegments(newCoord);
@@ -41,5 +41,9 @@
 
   Snake.prototype.turn = function(newDir) {
     this.dir = newDir;
+  }
+
+  Snake.prototype.grow = function() {
+
   }
 })();
