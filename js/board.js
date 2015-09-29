@@ -11,7 +11,7 @@
 
   Board.prototype.render = function() {
     var grid = [];
-    
+
     for (var i = 0; i < this.dimensions[0]; i++) {
       for (var j = 0; j < this.dimensions[1]; j++) {
         if (this.snake.isSnake([i, j])) {

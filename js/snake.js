@@ -4,8 +4,8 @@
   }
 
   var Snake = SGame.Snake = function() {
-    this.dir = "N",
-    this.segments = [[4, 4]]
+    this.dir = "S",
+    this.segments = [[10, 10]]
   }
 
   Snake.prototype.move = function() {
@@ -34,13 +34,16 @@
   }
 
   Snake.prototype.isSnake = function(position) {
+    var result;
     this.segments.forEach(function(segment) {
       if (segment[0] === position[0] && segment[1] === position[1]) {
-        return true;
+        result = true;
+      }
+      else {
+        result = false;
       }
     });
-
-    return false;
+    return result;
   }
 
   Snake.prototype.turn = function(newDir) {
