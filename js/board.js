@@ -54,7 +54,7 @@
     return (secondSegm[0] === apple[0] && secondSegm[1] === apple[1]);
   }
 
-  Board.prototype.checkIfLost = function() {
+  Board.prototype.checkIfLost = function(callback) {
     var dir = this.snake.dir,
         dim = this.dimensions,
         head = this.snake.head();
@@ -64,7 +64,7 @@
       (head[1] === dim[1] - 1 && dir === "E") ||
       (head[1] === 0 && dir === "W")
     ) {
-      alert("you lost!");
+      callback();
       return true;
     }
   }

@@ -10,7 +10,7 @@
     $('html').keydown(function(e) {
       this.handleKeyEvent(e);
     }.bind(this));
-    this.intervalId = window.setInterval(this.step.bind(this), 250);
+    this.intervalId = window.setInterval(this.step.bind(this), 150);
   }
 
   View.prototype.handleKeyEvent = function(e) {
@@ -33,7 +33,7 @@
   }
 
   View.prototype.step = function() {
-    if (this.board.checkIfLost()) {
+    if (this.board.checkIfLost(function() { alert("you lost!") })) {
       window.clearInterval(this.intervalId);
       return;
     }
