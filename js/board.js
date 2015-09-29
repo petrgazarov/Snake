@@ -5,7 +5,6 @@
 
   var Board = SGame.Board = function() {
     this.snake = new SGame.Snake();
-    console.log("initial " + this.snake.segments);
     this.dimensions = [20, 20];
     this.generateApple();
     this.render();

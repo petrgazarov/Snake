@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Snake</title>
+    <link rel="stylesheet" type="text/css" href="css/snake.css">
+  </head>
+  <body>
+    <h1>Snake!</h1>
+    <figure id='main'></figure>
+
+    <script src='vendor/jquery-2.1.4.js'></script>
+    <script src='js/apple.js'></script>
+    <script src='js/snake.js'></script>
+    <script src='js/board.js'></script>
+    <script src='js/view.js'></script>
+    <script>
+      $(function() {
+        new SGame.View('#main');
+      })
+    </script>
+  </body>
+</html>
