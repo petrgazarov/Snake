@@ -8,4 +8,4 @@
       Math.floor(Math.random() * 19)
     ]
   }
-}
+})();

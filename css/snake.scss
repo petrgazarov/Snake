@@ -31,7 +31,7 @@ h1 {
   border: 1px solid black;
 }
 
-.snake, .space {
+.snake, .space, .apple {
   display: block;
   width: 18px;
   height: 18px;
@@ -45,4 +45,9 @@ h1 {
 
 .space {
   background: pink;
+}
+
+.apple {
+  background-size: cover;
+  background-image: url-image('apple-red.png');
 }
