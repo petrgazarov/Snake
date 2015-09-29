@@ -11,29 +11,35 @@
       this.handleKeyEvent(e);
     }.bind(this));
 
-
+    this.interval = 130;
   }
 
   View.prototype.handleKeyEvent = function(e) {
+    e.preventDefault();
+
     switch(e.which) {
       case 37:
       case 65:
-        this.board.turnSnake("W");
+        this.passTurn("W");
+        // this.board.turnSnake("W");
       break;
 
       case 38:
       case 87:
-        this.board.turnSnake("N");
+        this.passTurn("N");
+        // this.board.turnSnake("N");
       break;
 
       case 39:
       case 68:
-        this.board.turnSnake("E");
+        this.passTurn("E");
+        // this.board.turnSnake("E");
       break;
 
       case 40:
       case 83:
-        this.board.turnSnake("S");
+        this.passTurn("S");
+        // this.board.turnSnake("S");
       break;
 
       case 32: this.startGame();;
@@ -41,12 +47,21 @@
 
       default: return;
     }
-    e.preventDefault();
+  }
+
+  View.prototype.passTurn = function(dir) {
+    if (this.stepping) {
+      window.setTimeout(this.board.turnSnake.bind(this.board, dir), this.interval);
+      return;
+    }
+
+    this.stepping = true;
+    this.board.turnSnake(dir);
   }
 
   View.prototype.startGame = function() {
     if (!this.intervalId) {
-      this.intervalId = window.setInterval(this.step.bind(this), 130);
+      this.intervalId = window.setInterval(this.step.bind(this), this.interval);
     }
   }
 
@@ -63,5 +78,7 @@
     this.board.moveSnake();
     var grid = this.board.render();
     this.$el.html(this.board.render());
+
+    this.stepping = false;
   }
 })();
