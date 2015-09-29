@@ -4,7 +4,7 @@
   }
 
   var Snake = SGame.Snake = function() {
-    this.dir = "S",
+    this.dir = "E",
     this.segments = [[10, 10]]
   }
 
@@ -15,13 +15,13 @@
       var newCoord = [- 1, 0];
     }
     else if (this.dir === "E") {
-      var newCoord = [0, - 1];
+      var newCoord = [0, 1];
     }
     else if (this.dir === "S") {
       var newCoord = [1, 0];
     }
     else if (this.dir === "W") {
-      var newCoord = [0, 1];
+      var newCoord = [0, - 1];
     }
 
     this.changeSegments(newCoord);
@@ -46,6 +46,10 @@
       }
     });
     return result;
+  }
+
+  Snake.prototype.head = function() {
+    return this.segments[0];
   }
 
   Snake.prototype.turn = function(newDir) {
