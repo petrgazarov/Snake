@@ -16,16 +16,24 @@
 
   View.prototype.handleKeyEvent = function(e) {
     switch(e.which) {
-      case 37: this.board.turnSnake("W");
+      case 37:
+      case 65:
+        this.board.turnSnake("W");
       break;
 
-      case 38: this.board.turnSnake("N");
+      case 38:
+      case 87:
+        this.board.turnSnake("N");
       break;
 
-      case 39: this.board.turnSnake("E");
+      case 39:
+      case 68:
+        this.board.turnSnake("E");
       break;
 
-      case 40: this.board.turnSnake("S");
+      case 40:
+      case 83:
+        this.board.turnSnake("S");
       break;
 
       case 32: this.startGame();;
