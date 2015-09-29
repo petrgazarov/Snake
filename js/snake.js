@@ -35,19 +35,6 @@
     }
   }
 
-  Snake.prototype.isSnake = function(position) {
-    var result;
-    this.segments.forEach(function(segment) {
-      if (segment[0] === position[0] && segment[1] === position[1]) {
-        result = true;
-      }
-      else {
-        result = false;
-      }
-    });
-    return result;
-  }
-
   Snake.prototype.head = function() {
     return this.segments[0];
   }

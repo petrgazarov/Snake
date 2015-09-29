@@ -15,7 +15,7 @@
 
     for (var i = 0; i < this.dimensions[0]; i++) {
       for (var j = 0; j < this.dimensions[1]; j++) {
-        if (this.snake.isSnake([i, j])) {
+        if (this.isSnake([i, j])) {
           var cell = $("<div>");
           cell.addClass('snake');
           grid.push(cell);
@@ -66,6 +66,19 @@
       alert("you lost!");
       return true;
     }
+  }
+
+  Board.prototype.isSnake = function(position) {
+    var result;
+    this.snake.segments.forEach(function(segment) {
+      if (segment[0] === position[0] && segment[1] === position[1]) {
+        result = true;
+      }
+      else {
+        result = false;
+      }
+    });
+    return result;
   }
 
   Board.prototype.generateApple = function() {
