@@ -6,6 +6,7 @@
   var Board = SGame.Board = function() {
     this.snake = new SGame.Snake();
     this.dimensions = [20, 20];
+    this.generateApple();
     this.render();
   }
 
@@ -50,5 +51,9 @@
       alert("you lost!");
       return true;
     }
+  }
+
+  Board.prototype.generateApple = function() {
+    this.apple = new SGame.Apple();
   }
 })();
