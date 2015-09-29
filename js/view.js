@@ -15,13 +15,13 @@
 
   View.prototype.handleKeyEvent = function(e) {
     switch(e.which) {
-      case 37: this.board.turnSnake("W");
+      case 37: this.board.turnSnake("E");
       break;
 
       case 38: this.board.turnSnake("N");
       break;
 
-      case 39: this.board.turnSnake("E");
+      case 39: this.board.turnSnake("W");
       break;
 
       case 40: this.board.turnSnake("S");
