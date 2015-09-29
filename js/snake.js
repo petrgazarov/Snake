@@ -48,7 +48,18 @@
   }
 
   Snake.prototype.turn = function(newDir) {
-    this.dir = newDir;
+    var dir = this.dir;
+    
+    if (
+        (dir === "N" && newDir === "S") ||
+        (dir === "S" && newDir === "N") ||
+        (dir === "E" && newDir === "W") ||
+        (dir === "W" && newDir === "E")
+    ) {
+      return;
+    } else {
+      this.dir = newDir;
+    }
   }
 
   Snake.prototype.grow = function() {
