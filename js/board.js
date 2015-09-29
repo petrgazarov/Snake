@@ -42,6 +42,15 @@
 
   Board.prototype.moveSnake = function() {
     this.snake.move();
+    if (this.snakeAteApple()) {
+      this.snake.grow();
+    }
+  }
+
+  Board.prototype.snakeAteApple = function() {
+    var apple = this.apple.position,
+        head = this.snake.head();
+    return (head[0] === apple[0] && head[1] === apple[1]);
   }
 
   Board.prototype.checkIfLost = function() {
