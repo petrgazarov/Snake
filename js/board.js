@@ -44,6 +44,7 @@
     this.snake.move();
     if (this.snakeAteApple()) {
       this.snake.grow();
+      this.generateApple();
     }
   }
 

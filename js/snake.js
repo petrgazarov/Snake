@@ -46,6 +46,6 @@
   }
 
   Snake.prototype.grow = function() {
-
+    
   }
 })();
