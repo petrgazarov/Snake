@@ -28,10 +28,14 @@
   }
 
   Snake.prototype.changeSegments = function(newCoord) {
-    this.addSegment && (this.addSegment = false);
+    var lastSegm = this.segments[this.segments.length - 1];
 
     for (var i = this.segments.length - 1; i > 0; i--) {
       this.segments[i] = this.segments[i - 1];
+    }
+    if (this.addSegment) {
+      this.segments.push(lastSegm);
+      this.addSegment = false;
     }
 
     this.segments[0] = [
