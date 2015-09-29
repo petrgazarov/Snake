@@ -20,11 +20,17 @@
           cell.addClass('snake');
           grid.push(cell);
         }
+        else if (this.isApple([i, j])) {
+          var cell = $("<div>");
+          cell.addClass('apple');
+          grid.push(cell);
+        }
         else {
           var cell = $("<div>");
           cell.addClass('space');
           grid.push(cell);
         }
+
       }
     }
     return grid;
@@ -55,5 +61,10 @@
 
   Board.prototype.generateApple = function() {
     this.apple = new SGame.Apple();
+  }
+
+  Board.prototype.isApple = function(position) {
+    return (this.apple.position[0] === position[0] &&
+            this.apple.position[1] === position[1])
   }
 })();
