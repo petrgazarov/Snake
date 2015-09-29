@@ -1,5 +1,5 @@
 /*RESET*/
-html, body, figure, div {
+html, body, figure, div, h1 {
   border: 0;
   padding: 0;
   outline: 0;
@@ -9,6 +9,19 @@ html, body, figure, div {
   background: transparent;
   text-align: inherit;
   text-decoration: inherit;
+}
+
+#main, h1 {
+  margin: auto;
+}
+
+h1 {
+  display: block;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 100px;
+  margin-bottom: 20px;
 }
 
 #main {
