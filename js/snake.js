@@ -55,6 +55,10 @@
     }
   }
 
+  Snake.prototype.ateApple = function() {
+    this.eatenApple = this.head();
+  }
+
   Snake.prototype.grow = function() {
     this.addSegment = true;
   }

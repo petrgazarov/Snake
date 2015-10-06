@@ -42,6 +42,7 @@
   Board.prototype.moveSnake = function() {
     this.snake.move();
     if (this.snakeAteApple()) {
+      this.snake.ateApple();
       this.snake.grow();
       this.generateApple();
     }

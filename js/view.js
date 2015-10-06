@@ -57,6 +57,7 @@
 
   View.prototype.startGame = function() {
     if (!this.intervalId) {
+      this.board = new SGame.Board();
       this.intervalId = window.setInterval(this.step.bind(this), this.interval);
     }
   }
