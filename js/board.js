@@ -15,21 +15,23 @@
 
     for (var i = 0; i < this.dimensions[0]; i++) {
       for (var j = 0; j < this.dimensions[1]; j++) {
+        var cell = $("<div>");
+
         if (this.isSnake([i, j])) {
-          var cell = $("<div>");
           cell.addClass('snake');
-          grid.push(cell);
+          // console.log(this.isEatenApple([i, j]));
+          if (this.isEatenApple([i, j])) {
+            cell.addClass('eaten-apple')
+          }
         }
         else if (this.isApple([i, j])) {
-          var cell = $("<div>");
           cell.addClass('apple');
-          grid.push(cell);
         }
         else {
-          var cell = $("<div>");
           cell.addClass('space');
-          grid.push(cell);
         }
+
+        grid.push(cell);
       }
     }
     return grid;
@@ -84,6 +86,22 @@
     });
 
     return result || false;
+  }
+
+  Board.prototype.isEatenApple = function(position) {
+    // console.log(this.snake.segments[this.snake.eatenAppleIdx]);
+    // console.log(this.snake.eatenAppleIdx);
+    // if () {console.log(position[0] === this.snake.segments[this.snake.eatenAppleIdx][0]);}
+    // if (Number.isInteger(this.snake.eatenAppleIdx)) {console.log(position[1] === this.snake.segments[this.snake.eatenAppleIdx][1]);}
+
+    if (Number.isInteger(this.snake.eatenAppleIdx) &&
+          position[0] === this.snake.segments[this.snake.eatenAppleIdx][0] &&
+          position[1] === this.snake.segments[this.snake.eatenAppleIdx][1]
+        )
+      return true;
+    else {
+      return false
+    }
   }
 
   Board.prototype.generateApple = function() {

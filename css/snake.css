@@ -44,8 +44,11 @@ h1 {
   margin: 2px;
 }
 
-.eaten-apple {
-  margin: 0px;
+.snake.eaten-apple {
+  margin: 1px;
+  width:  16px;
+  height: 16px;
+  background: green;
 }
 
 .snake {

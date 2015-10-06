@@ -41,6 +41,13 @@
     this.segments[0] = [
         this.segments[0][0] + newCoord[0], this.segments[0][1] + newCoord[1]
       ];
+
+    if (Number.isInteger(this.eatenAppleIdx) && this.eatenAppleIdx < this.segments.length) {
+      this.eatenAppleIdx += 1
+    }
+    else {
+      this.eatenAppleIdx = null;
+    }
   }
 
   Snake.prototype.head = function() {
@@ -56,7 +63,7 @@
   }
 
   Snake.prototype.ateApple = function() {
-    this.eatenApple = this.head();
+    this.eatenAppleIdx = 0;
   }
 
   Snake.prototype.grow = function() {
