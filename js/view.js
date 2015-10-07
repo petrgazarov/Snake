@@ -76,7 +76,7 @@
     }
     if (this.board.snakeWillEatApple()) {
       this.borderGreen();
-      window.setTimeout(this.borderBlack.bind(this), 500);
+      window.setTimeout(this.borderBlack.bind(this), 250);
     }
     this.board.moveSnake();
     var grid = this.board.render();

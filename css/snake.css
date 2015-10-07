@@ -17,6 +17,7 @@ body {
 
 #main, h1 {
   margin: auto;
+  font-family: "Calculator", sans-serif;
 }
 
 h1 {
@@ -62,4 +63,10 @@ h1 {
 .apple {
   background-size: contain;
   background-image: url(../images/apple-red.png);
+}
+
+@font-face {
+  font-family: "Calculator";
+  src: url(../vendor/digital-7-mono.ttf)
+  format("truetype");
 }
