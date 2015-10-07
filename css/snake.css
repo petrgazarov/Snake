@@ -1,5 +1,6 @@
 /*RESET*/
-html, body, section, figure, div, h1, h2, h3, p {
+
+html, body, section, figure, div, h1, h2, h3, p, aside {
   border: 0;
   padding: 0;
   outline: 0;
@@ -11,17 +12,30 @@ html, body, section, figure, div, h1, h2, h3, p {
   text-decoration: inherit;
 }
 
+@font-face {
+  font-family: "Calculator";
+  src: url(../vendor/digital-7-mono.ttf)
+  format("truetype");
+}
+
 body {
   font-family: sans-serif;
   width: 700px;
   margin: auto;
+  font-family: "Calculator", sans-serif;
+  text-align: center;
 }
 
 h1 {
-  font-family: "Calculator", sans-serif;
-  font-size: 36px;
-  text-align: center;
+  font-size: 48px;
   margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+.group {
+  clear: both;
+  content: "";
+  display: block;
 }
 
 .main {
@@ -31,12 +45,51 @@ h1 {
   float: left;
 }
 
+.stats {
+  display: block;
+  float: left;
+  position: relative;
+  margin: 144px 0;
+}
+
 #board {
   display: block;
   height: 360px;
   border: 5px solid black;
   background: pink;
 }
+
+.current-score-holder, .games-played-holder {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  background: #FFFACD;
+  position: relative;
+}
+
+.current-score-header, .games-played-header {
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+
+.games-played-header {
+  margin-top: 90px;
+}
+
+.current-score, .games-played {
+  font-size: 68px;
+  display: block;
+  margin-top: 22px;
+}
+
+aside {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+}
+
+/*BOARD RENDERING*/
 
 .snake, .space, .apple {
   display: block;
@@ -64,35 +117,4 @@ h1 {
 .apple {
   background-size: contain;
   background-image: url(../images/apple-red.png);
-}
-
-@font-face {
-  font-family: "Calculator";
-  src: url(../vendor/digital-7-mono.ttf)
-  format("truetype");
-}
-
-.current-score-holder, .games-played-holder {
-  width: 100px;
-  height: 100px;
-  border: 1px solid black;
-  background: #FFFACD;
-  position: relative;
-}
-
-.current-score-header, .games-played-header {
-  font-family: "Calculator", sans-serif;
-}
-
-.stats {
-  display: block;
-  float: left;
-  position: relative;
-  margin: 144px 0;
-}
-
-.group {
-  clear: both;
-  content: "";
-  display: block;
 }
