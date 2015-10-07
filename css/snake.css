@@ -20,7 +20,7 @@ html, body, section, figure, div, h1, h2, h3, p, aside {
 
 body {
   font-family: sans-serif;
-  width: 700px;
+  width: 650px;
   margin: auto;
   font-family: "Calculator", sans-serif;
   text-align: center;
@@ -32,14 +32,14 @@ h1 {
   letter-spacing: 1px;
 }
 
-.group {
+.group:after {
   clear: both;
   content: "";
   display: block;
 }
 
 .main {
-  margin:  80px 100px;
+  margin:  80px 0 80px 90px;
   display: block;
   width: 370px;
   float: left;
@@ -65,11 +65,17 @@ h1 {
   border: 1px solid black;
   background: #FFFACD;
   position: relative;
+  margin-left: 10px;
 }
 
 .current-score-header, .games-played-header {
   font-size: 25px;
   margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+.current-score-header {
+  margin-top: 10px;
 }
 
 .games-played-header {
@@ -107,7 +113,7 @@ aside {
 }
 
 .snake {
-  background: black;
+  background: #333300;
 }
 
 .space {
