@@ -59,6 +59,7 @@
 
   View.prototype.startGame = function() {
     if (!this.intervalId) {
+      this.setUpForNewGame();
       this.board = new SGame.Board();
       this.firstStep();
       this.intervalId = window.setInterval(this.step.bind(this), this.interval);
@@ -77,7 +78,7 @@
       return;
     }
     if (this.board.snakeWillEatApple()) {
-      this.incrementScore();
+      this.updateScore(false);
       this.borderGreen();
       window.setTimeout(this.borderBlack.bind(this), 250);
     }
@@ -105,9 +106,15 @@
     this.$el.css('border', '5px solid red')
   }
 
-  View.prototype.incrementScore = function() {
-    this.currentScore++;
+  View.prototype.updateScore = function(reset) {
+    reset ? (this.currentScore = 0) : this.currentScore++;
     $('.current-score').text(this.stringify(this.currentScore));
+  }
+
+  View.prototype.setUpForNewGame = function() {
+    $('.games-played').text(this.stringify(this.gamesPlayed));
+    this.gamesPlayed++;
+    this.updateScore(true);
   }
 
   View.prototype.stringify = function(number) {
