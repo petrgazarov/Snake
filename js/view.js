@@ -58,6 +58,7 @@
   View.prototype.startGame = function() {
     if (!this.intervalId) {
       this.board = new SGame.Board();
+      this.firstStep();
       this.intervalId = window.setInterval(this.step.bind(this), this.interval);
     }
   }
@@ -65,6 +66,7 @@
   View.prototype.gameOver = function() {
       window.clearInterval(this.intervalId);
       this.intervalId = null;
+      this.borderRed();
   }
 
   View.prototype.step = function() {
@@ -72,8 +74,9 @@
       this.gameOver();
       return;
     }
-    if (this.board.snakeAteApple()) {
+    if (this.board.snakeWillEatApple()) {
       this.borderGreen();
+      window.setTimeout(this.borderBlack.bind(this), 500);
     }
     this.board.moveSnake();
     var grid = this.board.render();
@@ -82,7 +85,20 @@
     this.stepping = false;
   }
 
+  View.prototype.firstStep = function() {
+    this.borderBlack();
+    this.step();
+  }
+
   View.prototype.borderGreen = function() {
     this.$el.css('border', '5px solid green')
+  }
+
+  View.prototype.borderBlack = function() {
+    this.$el.css('border', '5px solid black')
+  }
+
+  View.prototype.borderRed = function() {
+    this.$el.css('border', '5px solid red')
   }
 })();
