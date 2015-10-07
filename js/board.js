@@ -113,7 +113,9 @@
   }
 
   Board.prototype.generateApple = function() {
-    this.apple = new SGame.Apple();
+    do
+      this.apple = new SGame.Apple();
+    while ((this.isSnake(this.apple.position)));
   }
 
   Board.prototype.isApple = function(position) {
