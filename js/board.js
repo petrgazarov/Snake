@@ -102,14 +102,7 @@
   }
 
   Board.prototype.isEatenApple = function(position) {
-    if (Number.isInteger(this.snake.eatenAppleIdx) &&
-          position[0] === this.snake.segments[this.snake.eatenAppleIdx][0] &&
-          position[1] === this.snake.segments[this.snake.eatenAppleIdx][1]
-        )
-      return true;
-    else {
-      return false
-    }
+    return this.snake.isEatenApple(position);
   }
 
   Board.prototype.generateApple = function() {

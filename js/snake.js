@@ -5,7 +5,8 @@
 
   var Snake = SGame.Snake = function() {
     this.dir = "E",
-    this.segments = [[0, 2], [0, 1], [0, 0]]
+    this.segments = [[0, 2], [0, 1], [0, 0]],
+    this.eatenAppleIndices = [];
   }
 
   Snake.prototype.move = function() {
@@ -42,11 +43,13 @@
         this.segments[0][0] + newCoord[0], this.segments[0][1] + newCoord[1]
       ];
 
-    if (Number.isInteger(this.eatenAppleIdx) && this.eatenAppleIdx < this.segments.length - 1) {
-      this.eatenAppleIdx += 1
-    }
-    else {
-      this.eatenAppleIdx = null;
+    for (var i = 0; i < this.eatenAppleIndices.length; i++) {
+      if (this.eatenAppleIndices[i] < this.segments.length - 1) {
+        this.eatenAppleIndices[i]++;
+      }
+      else {
+        this.eatenAppleIndices.pop();
+      }
     }
   }
 
@@ -67,7 +70,7 @@
   }
 
   Snake.prototype.willEatApple = function() {
-    this.eatenAppleIdx = -1;
+    this.eatenAppleIndices.unshift(-1);
   }
 
   Snake.prototype.grow = function() {
@@ -76,5 +79,22 @@
 
   Snake.prototype.isOpposite = function(newDir) {
     return SGame.Coord.isOpposite(this.dir, newDir);
+  }
+
+  Snake.prototype.isEatenApple = function(position) {
+    var result;
+
+    if (this.eatenAppleIndices.length > 0) {
+      this.eatenAppleIndices.forEach(function(idx) {
+        if (position[0] === this.segments[idx][0] &&
+            position[1] === this.segments[idx][1]
+           ) {
+          result = true;
+          return;
+        }
+      }.bind(this));
+    }
+
+    return (result || false);
   }
 })();
