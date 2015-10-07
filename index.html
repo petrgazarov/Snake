@@ -2,12 +2,24 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Snake</title>
+    <title>Snake Game | Petr Gazarov</title>
     <link rel="stylesheet" type="text/css" href="css/snake.css">
   </head>
-  <body>
-    <h1>Snake!</h1>
-    <figure id='main'></figure>
+  <body class='group'>
+    <figure class='stats'>
+      <h2 class='current-score-header'>Score</h2>
+      <div class='current-score-holder'>
+        <h3 class='current-score'>00</h3>
+      </div>
+      <h2 class='games-played-header'>Games</h2>
+      <div class='games-played-holder'>
+        <h3 class='games-played'>00</h3>
+      </div>
+    </figure>
+    <figure class='main'>
+      <h1>Snake</h1>
+      <section id='board'></section>
+    </figure>
 
     <script src='vendor/jquery-2.1.4.js'></script>
     <script src='js/coord.js'></script>
@@ -17,7 +29,7 @@
     <script src='js/view.js'></script>
     <script>
       $(function() {
-        new SGame.View('#main');
+        new SGame.View('#board');
       })
     </script>
   </body>
