@@ -39,7 +39,7 @@ h1 {
 }
 
 .main {
-  margin:  80px 0 80px 90px;
+  margin:  80px 0 80px 80px;
   display: block;
   width: 370px;
   float: left;
@@ -57,6 +57,7 @@ h1 {
   height: 360px;
   border: 5px solid black;
   background: pink;
+  position: relative;
 }
 
 .current-score-holder, .games-played-holder {
@@ -97,10 +98,13 @@ aside {
 
 .game-status {
   display: block;
-  margin-top: 125px;
-  font-size: 20px;
-  color: red;
-  white-space: pre-wrap;
+  font-size: 24px;
+  color: blue;
+  position: fixed;
+  white-space: pre;
+  width: 360px;
+  top: 50%;
+  transform: translateY(-20%);
 }
 
 /*BOARD RENDERING*/

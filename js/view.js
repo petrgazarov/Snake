@@ -70,6 +70,7 @@
       window.clearInterval(this.intervalId);
       this.intervalId = null;
       this.borderRed();
+      $('#board').append($('<h3>').addClass('game-status').text('GAME OVER'));
   }
 
   View.prototype.step = function() {
