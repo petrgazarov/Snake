@@ -72,11 +72,10 @@
       this.gameOver();
       return;
     }
-    this.board.moveSnake();
     if (this.board.snakeAteApple()) {
-      debugger
       this.borderGreen();
     }
+    this.board.moveSnake();
     var grid = this.board.render();
     this.$el.html(this.board.render());
 

@@ -42,6 +42,9 @@
   }
 
   Board.prototype.moveSnake = function() {
+    if (this.snakeWillEatApple()) {
+      this.snake.willEatApple();
+    }
     this.snake.move();
     if (this.snakeAteApple()) {
       this.snake.ateApple();
@@ -53,6 +56,17 @@
     var apple = this.apple.position,
         secondSegm = this.snake.segments[1];
     return (secondSegm[0] === apple[0] && secondSegm[1] === apple[1]);
+  }
+
+  Board.prototype.snakeWillEatApple = function() {
+    var apple = this.apple.position,
+        head = this.snake.head();
+        dir = this.snake.dir
+
+    return  (dir === "S" && apple[1] === head[1] && head[0] === apple[0] - 1) ||
+            (dir === "N" && apple[1] === head[1] && head[0] === apple[0] + 1) ||
+            (dir === "E" && apple[0] === head[0] && head[1] === apple[1] - 1) ||
+            (dir === "W" && apple[0] === head[0] && head[1] === apple[1] + 1)
   }
 
   Board.prototype.checkIfLost = function() {

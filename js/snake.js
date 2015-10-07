@@ -63,8 +63,11 @@
   }
 
   Snake.prototype.ateApple = function() {
-    this.eatenAppleIdx = 0;
     this.grow();
+  }
+
+  Snake.prototype.willEatApple = function() {
+    this.eatenAppleIdx = -1;
   }
 
   Snake.prototype.grow = function() {
