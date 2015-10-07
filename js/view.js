@@ -4,6 +4,8 @@
   }
 
   var View = SGame.View = function(selector) {
+    this.currentScore = 0;
+    this.gamesPlayed = 0;
     this.$el = $(selector);
     this.board = new SGame.Board();
 
@@ -75,6 +77,7 @@
       return;
     }
     if (this.board.snakeWillEatApple()) {
+      this.incrementScore();
       this.borderGreen();
       window.setTimeout(this.borderBlack.bind(this), 250);
     }
@@ -100,5 +103,15 @@
 
   View.prototype.borderRed = function() {
     this.$el.css('border', '5px solid red')
+  }
+
+  View.prototype.incrementScore = function() {
+    this.currentScore++;
+    $('.current-score').text(this.stringify(this.currentScore));
+  }
+
+  View.prototype.stringify = function(number) {
+    numString = number.toString();
+    return (numString.length == 2 ? numString : "0" + numString)
   }
 })();
