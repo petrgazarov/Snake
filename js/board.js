@@ -19,7 +19,7 @@
 
         if (this.isSnake([i, j])) {
           cell.addClass('snake');
-          // console.log(this.isEatenApple([i, j]));
+
           if (this.isEatenApple([i, j])) {
             cell.addClass('eaten-apple')
           }
@@ -45,7 +45,6 @@
     this.snake.move();
     if (this.snakeAteApple()) {
       this.snake.ateApple();
-      this.snake.grow();
       this.generateApple();
     }
   }
@@ -89,11 +88,6 @@
   }
 
   Board.prototype.isEatenApple = function(position) {
-    // console.log(this.snake.segments[this.snake.eatenAppleIdx]);
-    // console.log(this.snake.eatenAppleIdx);
-    // if () {console.log(position[0] === this.snake.segments[this.snake.eatenAppleIdx][0]);}
-    // if (Number.isInteger(this.snake.eatenAppleIdx)) {console.log(position[1] === this.snake.segments[this.snake.eatenAppleIdx][1]);}
-
     if (Number.isInteger(this.snake.eatenAppleIdx) &&
           position[0] === this.snake.segments[this.snake.eatenAppleIdx][0] &&
           position[1] === this.snake.segments[this.snake.eatenAppleIdx][1]

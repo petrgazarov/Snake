@@ -73,9 +73,17 @@
       return;
     }
     this.board.moveSnake();
+    if (this.board.snakeAteApple()) {
+      debugger
+      this.borderGreen();
+    }
     var grid = this.board.render();
     this.$el.html(this.board.render());
 
     this.stepping = false;
+  }
+
+  View.prototype.borderGreen = function() {
+    this.$el.css('border', '5px solid green')
   }
 })();
