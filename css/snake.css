@@ -95,6 +95,14 @@ aside {
   margin-top: 10px;
 }
 
+.game-status {
+  display: block;
+  margin-top: 125px;
+  font-size: 20px;
+  color: red;
+  white-space: pre-wrap;
+}
+
 /*BOARD RENDERING*/
 
 .snake, .space, .apple {
