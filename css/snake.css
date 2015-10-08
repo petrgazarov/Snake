@@ -100,11 +100,11 @@ aside {
   display: block;
   font-size: 24px;
   color: blue;
-  position: fixed;
+  position: absolute;
   white-space: pre;
   width: 360px;
   top: 50%;
-  transform: translateY(-20%);
+  transform: translateY(-50%);
 }
 
 /*BOARD RENDERING*/
@@ -135,4 +135,5 @@ aside {
 .apple {
   background-size: contain;
   background-image: url(../images/apple-red.png);
+  background-repeat: no-repeat;
 }
