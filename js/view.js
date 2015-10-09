@@ -70,6 +70,8 @@
   View.prototype.gameOver = function() {
       window.clearInterval(this.intervalId);
       this.intervalId = null;
+      $('#board h3').remove();
+
       this.borderRed();
       $('#board').append($('<h3>').addClass('game-status')
                  .text('GAME OVER').css('font-size', '36px'));
