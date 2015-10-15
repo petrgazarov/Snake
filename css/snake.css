@@ -89,6 +89,10 @@ h1 {
   margin-top: 22px;
 }
 
+@-moz-document url-prefix() {
+  .current-score, .games-played { margin-top: 0px; }
+}
+
 aside {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
