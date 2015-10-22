@@ -20,7 +20,7 @@ html, body, section, figure, div, h1, h2, h3, p, aside {
 
 body {
   font-family: sans-serif;
-  width: 650px;
+  width: 1000px;
   margin: auto;
   font-family: "Calculator", sans-serif;
   text-align: center;
@@ -41,7 +41,7 @@ h1 {
 .main {
   margin:  80px 0 80px 80px;
   display: block;
-  width: 370px;
+  width: 740px;
   float: left;
 }
 
@@ -54,10 +54,11 @@ h1 {
 
 #board {
   display: block;
-  height: 360px;
-  border: 5px solid black;
+  height: 720px;
+  border: 5px solid transparent;
   background: pink;
   position: relative;
+  transition: border 0.4s;
 }
 
 .current-score-holder, .games-played-holder {
@@ -115,16 +116,16 @@ aside {
 
 .snake, .space, .apple {
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 28px;
+  height: 28px;
   float: left;
-  margin: 2px;
+  margin: 4px;
 }
 
 .snake.eaten-apple {
-  margin: 1px;
-  width:  16px;
-  height: 16px;
+  margin: 2px;
+  width:  32px;
+  height: 32px;
   background: green;
 }
 

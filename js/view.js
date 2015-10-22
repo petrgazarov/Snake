@@ -8,7 +8,6 @@
     this.gamesPlayed = 0;
     this.$el = $(selector);
     this.board = new SGame.Board();
-    this.nextRoundModal = false;
 
     $('html').keydown(function(e) {
       this.handleKeyEvent(e);
@@ -70,11 +69,8 @@
   View.prototype.gameOver = function() {
       window.clearInterval(this.intervalId);
       this.intervalId = null;
-      $('#board h3').remove();
 
       this.borderRed();
-      $('#board').append($('<h3>').addClass('game-status')
-                 .text('GAME OVER').css('font-size', '36px'));
   }
 
   View.prototype.step = function() {
@@ -86,19 +82,18 @@
     if (this.board.snakeWillEatApple()) {
       this.updateScore(false);
       this.borderGreen();
-      window.setTimeout(this.borderBlack.bind(this), 250);
+      window.setTimeout(this.borderNone.bind(this), 250);
       this.incrementRoundIfHit20();
     }
     this.board.moveSnake();
     var grid = this.board.render();
     this.$el.html(this.board.render());
-    if (this.nextRoundModal) { this.showNextRoundModal(); }
 
     this.stepping = false;
   }
 
   View.prototype.firstStep = function() {
-    this.borderBlack();
+    this.borderNone();
     this.step();
   }
 
@@ -106,8 +101,8 @@
     this.$el.css('border', '5px solid green')
   }
 
-  View.prototype.borderBlack = function() {
-    this.$el.css('border', '5px solid black')
+  View.prototype.borderNone = function() {
+    this.$el.css('border', '5px solid transparent')
   }
 
   View.prototype.borderRed = function() {
@@ -136,18 +131,6 @@
   View.prototype.resetInterval = function(unitsFaster) {
     window.clearInterval(this.intervalId);
     this.intervalId = window.setInterval(this.step.bind(this), this.interval -= unitsFaster);
-  }
-
-  View.prototype.showNextRoundModal = function(initial) {
-    if (initial) {
-      this.nextRoundModal = true;
-      window.setTimeout(function() {
-        this.nextRoundModal = false;
-      }.bind(this), 5000);
-    }
-
-    $('#board').append($('<h3>').addClass('game-status')
-               .text('TURBO '+ this.round).css('font-size', '36px'));
   }
 
   View.prototype.stringify = function(number) {
